@@ -1,9 +1,15 @@
 name: Desplegando pagina estatica en S3
 on:
- push:
-   branches:
-     - main  # Change to your default branch
+#  push:
+#    branches:
+#      - main  # Change to your default branch
 
+  workflow_dispatch:
+    inputs:
+      targetEnv:
+        description: 'Target ENV i.e: qa, dev, prod'     
+        required: true
+        default: 'qa'   
 
 jobs:
  deploy:
